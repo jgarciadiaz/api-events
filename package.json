@@ -1,0 +1,31 @@
+{
+  "name": "api-events",
+  "version": "1.0.0",
+  "main": "./src/server",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/server",
+    "start": "node ./src/server",
+    "lint": "esw src",
+    "docker:build": "docker build -t jgarciadiaz/api-events .",
+    "docker:run": "docker run -e 'DB_URL=mongodb://mongo/events' -e 'PORT=80' --name api-events --link mongodb:mongo -d -p 49160:80 jgarciadiaz/api-events",
+    "docker:push": "docker push jgarciadiaz/api-events",
+    "docker:pull": "docker pull jgarciadiaz/api-events"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "convict": "^4.0.1",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "mongoose": "^4.13.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-watch": "^3.1.3",
+    "nodemon": "^1.12.1"
+  }
+}

@@ -15,10 +15,12 @@ const eventType = new GraphQLObjectType({
     uuid: {
       type: GraphQLString,
       description: 'Event ID',
+      unique: true
     },
     title: {
       type: GraphQLString,
       description: 'Event Title',
+      unique: true
     },
     description: {
       type: GraphQLString,

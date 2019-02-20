@@ -10,18 +10,14 @@ router.get('/events', graphqlHTTP(() => ({
   schema: eventSchema
 })))
 
-router.post('/events', (req, res) => {
+router.post('/events', async (req, res) => {
   const { events } = req.body
-  const promises = events.map(async(event) => {
-    try {
-      await saveEvent(event)
-    } catch(err) {
-    }
-  })
+  const promises = events.map(saveEvent)
   Promise.all(promises)
     .then(results => {
+      const data = results && results.filter(item => item).length || 0
       res.send({
-        data: results && results.filter(item => item).length || 0
+        data
       })
     })
     .catch(error => {

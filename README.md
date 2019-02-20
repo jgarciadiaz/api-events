@@ -22,7 +22,15 @@ Run api
 How to query endpoint
 ----
 
-Eg. `http://0.0.0.0:49160/events?query={event{title,location,numberBought,price,ends,image}}`
+Events
+
+`http://0.0.0.0:49160/events?query={event{uuid,title,description,url,image,score}}`
+
+Weather Report
+
+`http://0.0.0.0:49160/weather?query={report{celsius,fahrenheit,pressure,relativeHumidity,lightLevel,created}}`
+
+Weather
 
 Docker commands
 ----

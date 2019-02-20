@@ -9,8 +9,8 @@ const {
 const weatherModel = require('../../model/weatherModel');
 
 const eventType = new GraphQLObjectType({
-  name: 'event',
-  description: 'event event',
+  name: 'report',
+  description: 'weather report',
   fields: () => ({
     celsius: {
       type: GraphQLString,

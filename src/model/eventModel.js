@@ -9,6 +9,6 @@ const EventSchema = new mongoose.Schema({
   score: Number
 });
 
-const GrpnEvent = mongoose.model('event', EventSchema);
+const eventModel = mongoose.model('event', EventSchema);
 
-module.exports = GrpnEvent;
+module.exports = eventModel;

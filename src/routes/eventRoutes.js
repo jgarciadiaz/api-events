@@ -13,6 +13,7 @@ router.get('/events', graphqlHTTP(() => ({
 router.post('/events', async (req, res) => {
   const { events } = req.body
   const promises = events.map(saveEvent)
+
   Promise.all(promises)
     .then(results => {
       const data = results && results.filter(item => item).length || 0

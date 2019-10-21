@@ -1,12 +1,12 @@
 const {
-  GraphQLObjectType,
   GraphQLSchema,
+  GraphQLObjectType,
   GraphQLString,
   GraphQLList,
   GraphQLInt
 } = require('graphql/type')
 
-const eventMongo = require('../../model/eventModel')
+const eventModel = require('../../model/eventModel')
 
 const eventType = new GraphQLObjectType({
   name: 'event',
@@ -53,7 +53,7 @@ const eventSchema = new GraphQLSchema({
         },
         resolve: (root, { uuid }) => {
           const query = uuid ? { uuid } : {}
-          return eventMongo.find(query)
+          return eventModel.find(query)
         },
       },
     },
